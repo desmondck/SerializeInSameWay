@@ -1,9 +1,10 @@
 # SerializeInSameWay
 
 In usual, serialize/unserialize like this
+```c++
 void XXX::Serialize(archive& ar)
-{
-  if(ar.isloading()
+{  
+  if(ar.isloading())  
   {
     //serialize
     ar << a;
@@ -18,9 +19,12 @@ void XXX::Serialize(archive& ar)
     ar >> c;
   }
 }
+```
 
 SerializeInSameWay implement like this:
+```c++
 void XXX::Serialize(DataStreamHelper& helper)
 {
   helper & a & b & c;
 }
+```
